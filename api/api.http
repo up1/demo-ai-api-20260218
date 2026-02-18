@@ -1,6 +1,37 @@
 @api_HostAddress = http://localhost:5170
 
-GET {{api_HostAddress}}/weatherforecast/
+### Create a new order
+POST {{api_HostAddress}}/api/v1/orders
+Content-Type: application/json
 Accept: application/json
+
+{
+  "customerId": "unique-customer-id-123",
+  "orderDate": "2025-01-20T23:24:00Z",
+  "lineItems": [
+    {
+      "productId": "product-id-abc",
+      "quantity": 2,
+      "unitPrice": 10.50
+    },
+    {
+      "productId": "product-id-xyz",
+      "quantity": 1,
+      "unitPrice": 25.00
+    }
+  ],
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345"
+  },
+  "billingAddress": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345"
+  }
+}
 
 ###

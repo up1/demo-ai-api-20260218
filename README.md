@@ -10,6 +10,7 @@ $dotnet run
 ## 2. Create test project with xunit
 ```
 $mkdir tests
+$cd tests
 $dotnet new xunit
 $dotnet test
 

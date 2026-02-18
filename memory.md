@@ -4,6 +4,7 @@
 - **Project Name:** api
 - **Type:** ASP.NET Core 9 Minimal API (Web API)
 - **Target Framework:** .NET 9.0 (`net9.0`)
+- **Solution:** `demo01.sln`
 - **API Style:** Minimal API (ไม่ใช่ Controller-based)
 - **Database:** PostgreSQL (via Entity Framework Core + Npgsql)
 
@@ -11,6 +12,12 @@
 ```
 .github/
   copilot-instructions.md       # คำแนะนำสำหรับ Copilot เกี่ยวกับ ASP.NET REST API
+  agents/
+    security-review.agent.md    # Custom agent สำหรับ security review
+  instructions/
+    dotnet.instructions.md      # Guidelines สำหรับ ASP.NET REST API development
+  prompts/
+    git-add-commit.prompt.md    # Prompt สำหรับ git add + commit (Conventional Commits)
 features/
   1.md                          # Spec: REST API Create a new order
 api/
@@ -35,6 +42,9 @@ api/
     OrderService.cs              # Business logic สำหรับสร้าง Order
   Endpoints/
     OrderEndpoints.cs            # Minimal API route group: /api/v1/orders
+tests/
+  tests.csproj                   # xUnit test project
+  UnitTest1.cs                   # Unit test file (placeholder, ยังไม่มี test cases จริง)
 ```
 
 ## Dependencies
@@ -90,7 +100,18 @@ api/
 - Order status เริ่มต้นเป็น `"pending"`
 - ยังไม่มี authentication/authorization
 - ยังไม่มี custom error handling หรือ validation (success case only)
-- ยังไม่มี unit tests
+- ยังไม่มี unit tests ที่ใช้งานจริง (มี placeholder `UnitTest1.cs`)
+
+## Test Project
+- **Framework:** xUnit 2.9.2
+- **Test SDK:** Microsoft.NET.Test.Sdk 17.11.1
+- **Coverage:** coverlet.collector 6.0.2
+- **Status:** มีไฟล์ `UnitTest1.cs` แต่ยังไม่มี test logic จริง
+
+## GitHub Copilot Tooling
+- **Security Review Agent** (`security-review.agent.md`) — review code ตาม OWASP Top 10, Zero Trust, AI/LLM security
+- **dotnet.instructions.md** — Guidelines สำหรับ Minimal API, EF Core, auth, testing, performance
+- **git-add-commit.prompt.md** — Conventional Commits workflow
 
 ## Next Steps (ตาม copilot-instructions.md)
 - [x] เพิ่ม CRUD endpoints สำหรับ resource ใหม่ (POST Create Order)
